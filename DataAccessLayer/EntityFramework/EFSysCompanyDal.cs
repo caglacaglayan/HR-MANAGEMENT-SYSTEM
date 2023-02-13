@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.EntityFramework
 {
-    public class EFUserDal : GenericRepository<SysUser>, IUserDal
+    public class EFSysCompanyDal : GenericRepository<SysCompany>, ISysCompanyDal
     {
         Context _context;
 
-        public EFUserDal(Context context) : base(context)
+        public EFSysCompanyDal(Context context) : base(context)
         {
             _context = context;
         }

@@ -1,4 +1,5 @@
 ﻿using EntityLayer.Concrete.System;
+using EntityLayer.Concrete.Types;
 using System;
 using System.Collections.Generic;
 using System.Linq;

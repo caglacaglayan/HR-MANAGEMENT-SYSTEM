@@ -10,8 +10,8 @@ namespace EntityLayer.Concrete.Persons
     {
         public int PersonID { get; set; }
         public Person Person { get; set; }
-        public short CTypeID { get; set; }
-        public short STypeID { get; set; }
+        public short CTypeID { get; set; }//sor
+        public short STypeID { get; set; }//sor
         public short Status { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }

@@ -1,12 +1,13 @@
-﻿using System;
+﻿using EntityLayer.Concrete.Persons;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EntityLayer.Concrete.Persons
+namespace EntityLayer.Concrete.Types
 {
-    public class PersonLeaveType : BaseEntity
+    public class SysLeaveType : BaseEntity
     {
         public short IsPaid { get; set; }
         public short IsDamaged { get; set; }
@@ -14,5 +15,6 @@ namespace EntityLayer.Concrete.Persons
         public string Title { get; set; }
         public string LangKey { get; set; }
         public int SyncID { get; set; }
+        public ICollection<PersonLeave> PersonLeaves { get; set; }
     }
 }

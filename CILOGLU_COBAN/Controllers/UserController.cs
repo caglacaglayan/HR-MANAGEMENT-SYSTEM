@@ -1,4 +1,4 @@
-﻿using BusinessLayer.Concrete;
+﻿using BusinessLayer.Concrete.System;
 using DataAccessLayer.EntityFramework;
 using DataAccessLayer.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -8,14 +8,14 @@ namespace CILOGLU_COBAN.Controllers
     public class UserController : Controller
     {
         Context _context;
-        EFUserDal efd;
-        UserManager mg;
+        EFSysUserDal efd;
+        SysUserManager mg;
 
         public UserController(Context context)
         {
             _context = context;
-            efd = new EFUserDal(context);
-            mg = new UserManager(efd);
+            efd = new EFSysUserDal(context);
+            mg = new SysUserManager(efd);
         }
         public IActionResult Index()
         {

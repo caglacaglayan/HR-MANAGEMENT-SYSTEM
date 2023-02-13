@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EntityLayer.Concrete.Types;
 
 namespace EntityLayer.Concrete.Persons
 {
@@ -10,8 +11,8 @@ namespace EntityLayer.Concrete.Persons
     {
         public int PersonID { get; set; }
         public Person Person { get; set; }
-        public int PersonLeaveTypeID { get; set; }
-        public PersonLeaveType PersonLeaveType { get; set; }
+        public int SysLeaveTypeID { get; set; }
+        public SysLeaveType SysLeaveType { get; set; }
         public DateTime StartAt { get; set; }
         public DateTime EndAt { get; set; }
         public short Status { get; set; }

@@ -1,4 +1,4 @@
-﻿using BusinessLayer.Abstract;
+﻿using BusinessLayer.Abstract.Persons;
 using DataAccessLayer.Abstract;
 using EntityLayer.Concrete.Persons;
 using System;
@@ -7,12 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLayer.Concrete
+namespace BusinessLayer.Concrete.Persons
 {
     public class PersonManager : IPersonService
     {
         IPersonDal _personDal;
-        
+
         public PersonManager(IPersonDal personDal)
         {
             _personDal = personDal;

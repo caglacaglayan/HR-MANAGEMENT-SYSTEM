@@ -1,7 +1,5 @@
-﻿using BusinessLayer.Abstract;
+﻿using BusinessLayer.Abstract.System;
 using DataAccessLayer.Abstract;
-using DataAccessLayer.EntityFramework;
-using EntityLayer.Concrete.Persons;
 using EntityLayer.Concrete.System;
 using System;
 using System.Collections.Generic;
@@ -9,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLayer.Concrete
+namespace BusinessLayer.Concrete.System
 {
-    public class UserManager : IUserService
+    public class SysUserManager : ISysUserService
     {
-        IUserDal _userDal;
+        ISysUserDal _userDal;
 
-        public UserManager(IUserDal userDal)
+        public SysUserManager(ISysUserDal userDal)
         {
             _userDal = userDal;
         }
@@ -32,20 +30,20 @@ namespace BusinessLayer.Concrete
 
         public SysUser GetByID(int id)
         {
-            return _userDal.Get(x => x.Id == id);
+            return _userDal.Get(x => x.PersonID == id);
         }
 
-		public SysUser GetByUsername(string p)
-		{
-			return _userDal.Get(x => x.Username == p);
-		}
+        public SysUser GetByUsername(string p)
+        {
+            return _userDal.Get(x => x.Username == p);
+        }
 
-		public SysUser GetByUsernameAndPassword(SysUser user)
-		{
-			return _userDal.Get(x => x.Username == user.Username && x.Password == user.Password);
-		}
+        public SysUser GetByUsernameAndPassword(SysUser user)
+        {
+            return _userDal.Get(x => x.Username == user.Username && x.Password == user.Password);
+        }
 
-		public List<SysUser> GetList()
+        public List<SysUser> GetList()
         {
             return _userDal.List();
         }

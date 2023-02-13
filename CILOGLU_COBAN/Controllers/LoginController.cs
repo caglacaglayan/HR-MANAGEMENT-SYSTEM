@@ -1,4 +1,4 @@
-﻿using BusinessLayer.Concrete;
+﻿using BusinessLayer.Concrete.System;
 using DataAccessLayer.EntityFramework;
 using DataAccessLayer.Models;
 using EntityLayer.Concrete.System;
@@ -13,14 +13,14 @@ namespace CILOGLU_COBAN.Controllers
     public class LoginController : Controller
     {
 		Context _context;
-		EFUserDal efu;
-		UserManager umg;
+		EFSysUserDal efu;
+		SysUserManager umg;
 
 		public LoginController(Context context)
 		{
 			_context = context;
-			efu = new EFUserDal(context);
-			umg = new UserManager(efu);
+			efu = new EFSysUserDal(context);
+			umg = new SysUserManager(efu);
 		}
 
 		[HttpGet]

@@ -2,6 +2,7 @@
 using EntityLayer.Concrete.Inventories;
 using EntityLayer.Concrete.Persons;
 using EntityLayer.Concrete.System;
+using EntityLayer.Concrete.Types;
 using EntityLayer.Concrete.Work;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -23,12 +24,16 @@ namespace DataAccessLayer.Models
         public DbSet<PersonFinger> PersonFingers { get; set; }
         public DbSet<PersonPass> PersonPasses { get; set; }
         public DbSet<PersonEdu> PersonEdus { get; set; }
-        public DbSet<PersonEduType> PersonEduTypes { get; set; }
         public DbSet<PersonVisa> PersonVisas { get; set; }
-        public DbSet<PersonVisaType> PersonVisaTypes { get; set; }
         public DbSet<PersonLeave> PersonLeaves { get; set; }
-        public DbSet<PersonLeaveType> PersonLeaveTypes { get; set; }
+        public DbSet<PersonDocument> PersonDocuments { get; set; }
+
         public DbSet<PersonAddress> PersonAddresses { get; set; }
+
+        public DbSet<SysVisaType> SysVisaTypes { get; set; }
+        public DbSet<SysLeaveType> SysLeaveTypes { get; set; }
+        public DbSet<SysEduType> SysEduTypes { get; set; }
+        public DbSet<SysDocumentType> SysDocumentTypes { get; set; }
 
         public DbSet<SysAnnual> SysAnnuals { get; set; }
         public DbSet<SysCountry> SysCountries { get; set; }

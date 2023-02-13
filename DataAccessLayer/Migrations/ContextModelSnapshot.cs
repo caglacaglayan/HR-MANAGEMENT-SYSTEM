@@ -300,11 +300,48 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PersonID");
+                    b.HasIndex("PersonID")
+                        .IsUnique();
 
                     b.HasIndex("SysCompanyID");
 
                     b.ToTable("PersonCards");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.Persons.PersonDocument", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("LFile")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("PersonID")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("SysDocumentTypeId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("TypeID")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PersonID");
+
+                    b.HasIndex("SysDocumentTypeId");
+
+                    b.ToTable("PersonDocuments");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Persons.PersonEdu", b =>
@@ -329,9 +366,6 @@ namespace DataAccessLayer.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("PersonEduTypeID")
-                        .HasColumnType("integer");
-
                     b.Property<int>("PersonID")
                         .HasColumnType("integer");
 
@@ -339,43 +373,19 @@ namespace DataAccessLayer.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<int>("SysEduTypeID")
+                        .HasColumnType("integer");
+
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("PersonEduTypeID");
 
                     b.HasIndex("PersonID");
 
+                    b.HasIndex("SysEduTypeID");
+
                     b.ToTable("PersonEdus");
-                });
-
-            modelBuilder.Entity("EntityLayer.Concrete.Persons.PersonEduType", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("LangKey")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("PersonEduTypes");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Persons.PersonFinger", b =>
@@ -436,9 +446,6 @@ namespace DataAccessLayer.Migrations
                     b.Property<int>("PersonID")
                         .HasColumnType("integer");
 
-                    b.Property<int>("PersonLeaveTypeID")
-                        .HasColumnType("integer");
-
                     b.Property<DateTime>("StartAt")
                         .HasColumnType("timestamp with time zone");
 
@@ -448,6 +455,9 @@ namespace DataAccessLayer.Migrations
                     b.Property<int>("SyncID")
                         .HasColumnType("integer");
 
+                    b.Property<int>("SysLeaveTypeID")
+                        .HasColumnType("integer");
+
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("timestamp with time zone");
 
@@ -455,48 +465,9 @@ namespace DataAccessLayer.Migrations
 
                     b.HasIndex("PersonID");
 
-                    b.HasIndex("PersonLeaveTypeID");
+                    b.HasIndex("SysLeaveTypeID");
 
                     b.ToTable("PersonLeaves");
-                });
-
-            modelBuilder.Entity("EntityLayer.Concrete.Persons.PersonLeaveType", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<short>("IsDamaged")
-                        .HasColumnType("smallint");
-
-                    b.Property<short>("IsPaid")
-                        .HasColumnType("smallint");
-
-                    b.Property<string>("LangKey")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<short>("Status")
-                        .HasColumnType("smallint");
-
-                    b.Property<int>("SyncID")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("PersonLeaveTypes");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Persons.PersonPass", b =>
@@ -630,9 +601,6 @@ namespace DataAccessLayer.Migrations
                     b.Property<int>("PersonID")
                         .HasColumnType("integer");
 
-                    b.Property<int>("PersonVisaTypeID")
-                        .HasColumnType("integer");
-
                     b.Property<DateTime>("StartedAt")
                         .HasColumnType("timestamp with time zone");
 
@@ -640,6 +608,9 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("smallint");
 
                     b.Property<int>("SyncID")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("SysVisaTypeID")
                         .HasColumnType("integer");
 
                     b.Property<string>("Title")
@@ -653,39 +624,9 @@ namespace DataAccessLayer.Migrations
 
                     b.HasIndex("PersonID");
 
-                    b.HasIndex("PersonVisaTypeID");
+                    b.HasIndex("SysVisaTypeID");
 
                     b.ToTable("PersonVisas");
-                });
-
-            modelBuilder.Entity("EntityLayer.Concrete.Persons.PersonVisaType", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("LangKey")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<int>("SyncID")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("PersonVisaTypes");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.System.SysAnnual", b =>
@@ -1153,10 +1094,10 @@ namespace DataAccessLayer.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("ParentID")
+                    b.Property<int?>("ParentID")
                         .HasColumnType("integer");
 
-                    b.Property<int>("SyncID")
+                    b.Property<int?>("SyncID")
                         .HasColumnType("integer");
 
                     b.Property<string>("Title")
@@ -1208,7 +1149,8 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PersonID");
+                    b.HasIndex("PersonID")
+                        .IsUnique();
 
                     b.HasIndex("Username")
                         .IsUnique();
@@ -1310,6 +1252,135 @@ namespace DataAccessLayer.Migrations
                     b.HasIndex("SysWorkTempID");
 
                     b.ToTable("SysWorkTempItems");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.System.Types.SysDocumentType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("LangKey")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("MyProperty")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<short>("TypeID")
+                        .HasColumnType("smallint");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SysDocumentTypes");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.System.Types.SysEduType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("LangKey")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SysEduTypes");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.System.Types.SysLeaveType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<short>("IsDamaged")
+                        .HasColumnType("smallint");
+
+                    b.Property<short>("IsPaid")
+                        .HasColumnType("smallint");
+
+                    b.Property<string>("LangKey")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<short>("Status")
+                        .HasColumnType("smallint");
+
+                    b.Property<int>("SyncID")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SysLeaveTypes");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.System.Types.SysVisaType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("LangKey")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("SyncID")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SysVisaTypes");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Work.WorkGroup", b =>
@@ -1439,6 +1510,21 @@ namespace DataAccessLayer.Migrations
                     b.ToTable("InvCategoryInventory");
                 });
 
+            modelBuilder.Entity("PersonSysPosition", b =>
+                {
+                    b.Property<int>("PersonsId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("SysPositionsId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("PersonsId", "SysPositionsId");
+
+                    b.HasIndex("SysPositionsId");
+
+                    b.ToTable("PersonSysPosition");
+                });
+
             modelBuilder.Entity("EntityLayer.Concrete.Inventories.Inventory", b =>
                 {
                     b.HasOne("EntityLayer.Concrete.Persons.Person", "Person")
@@ -1494,8 +1580,8 @@ namespace DataAccessLayer.Migrations
             modelBuilder.Entity("EntityLayer.Concrete.Persons.PersonCard", b =>
                 {
                     b.HasOne("EntityLayer.Concrete.Persons.Person", "Person")
-                        .WithMany("PersonCards")
-                        .HasForeignKey("PersonID")
+                        .WithOne("PersonCard")
+                        .HasForeignKey("EntityLayer.Concrete.Persons.PersonCard", "PersonID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -1510,23 +1596,42 @@ namespace DataAccessLayer.Migrations
                     b.Navigation("SysCompany");
                 });
 
-            modelBuilder.Entity("EntityLayer.Concrete.Persons.PersonEdu", b =>
+            modelBuilder.Entity("EntityLayer.Concrete.Persons.PersonDocument", b =>
                 {
-                    b.HasOne("EntityLayer.Concrete.Persons.PersonEduType", "PersonEduType")
-                        .WithMany("PersonEdus")
-                        .HasForeignKey("PersonEduTypeID")
+                    b.HasOne("EntityLayer.Concrete.Persons.Person", "Person")
+                        .WithMany("PersonDocuments")
+                        .HasForeignKey("PersonID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("EntityLayer.Concrete.System.Types.SysDocumentType", "SysDocumentType")
+                        .WithMany("PersonDocuments")
+                        .HasForeignKey("SysDocumentTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Person");
+
+                    b.Navigation("SysDocumentType");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.Persons.PersonEdu", b =>
+                {
                     b.HasOne("EntityLayer.Concrete.Persons.Person", "Person")
                         .WithMany("PersonEdus")
                         .HasForeignKey("PersonID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("EntityLayer.Concrete.System.Types.SysEduType", "SysEduType")
+                        .WithMany("PersonEdus")
+                        .HasForeignKey("SysEduTypeID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Person");
 
-                    b.Navigation("PersonEduType");
+                    b.Navigation("SysEduType");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Persons.PersonFinger", b =>
@@ -1543,20 +1648,20 @@ namespace DataAccessLayer.Migrations
             modelBuilder.Entity("EntityLayer.Concrete.Persons.PersonLeave", b =>
                 {
                     b.HasOne("EntityLayer.Concrete.Persons.Person", "Person")
-                        .WithMany()
+                        .WithMany("PersonLeaves")
                         .HasForeignKey("PersonID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("EntityLayer.Concrete.Persons.PersonLeaveType", "PersonLeaveType")
-                        .WithMany()
-                        .HasForeignKey("PersonLeaveTypeID")
+                    b.HasOne("EntityLayer.Concrete.System.Types.SysLeaveType", "SysLeaveType")
+                        .WithMany("PersonLeaves")
+                        .HasForeignKey("SysLeaveTypeID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Person");
 
-                    b.Navigation("PersonLeaveType");
+                    b.Navigation("SysLeaveType");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Persons.PersonPass", b =>
@@ -1589,15 +1694,15 @@ namespace DataAccessLayer.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("EntityLayer.Concrete.Persons.PersonVisaType", "PersonVisaType")
+                    b.HasOne("EntityLayer.Concrete.System.Types.SysVisaType", "SysVisaType")
                         .WithMany("PersonVisas")
-                        .HasForeignKey("PersonVisaTypeID")
+                        .HasForeignKey("SysVisaTypeID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Person");
 
-                    b.Navigation("PersonVisaType");
+                    b.Navigation("SysVisaType");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.System.SysDepartment", b =>
@@ -1667,8 +1772,8 @@ namespace DataAccessLayer.Migrations
             modelBuilder.Entity("EntityLayer.Concrete.System.SysUser", b =>
                 {
                     b.HasOne("EntityLayer.Concrete.Persons.Person", "Person")
-                        .WithMany("SysUsers")
-                        .HasForeignKey("PersonID")
+                        .WithOne("SysUser")
+                        .HasForeignKey("EntityLayer.Concrete.System.SysUser", "PersonID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -1716,6 +1821,21 @@ namespace DataAccessLayer.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("PersonSysPosition", b =>
+                {
+                    b.HasOne("EntityLayer.Concrete.Persons.Person", null)
+                        .WithMany()
+                        .HasForeignKey("PersonsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EntityLayer.Concrete.System.SysPosition", null)
+                        .WithMany()
+                        .HasForeignKey("SysPositionsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("EntityLayer.Concrete.Inventories.Inventory", b =>
                 {
                     b.Navigation("InvTranses");
@@ -1727,32 +1847,28 @@ namespace DataAccessLayer.Migrations
 
                     b.Navigation("PersonAddresses");
 
-                    b.Navigation("PersonCards");
+                    b.Navigation("PersonCard")
+                        .IsRequired();
+
+                    b.Navigation("PersonDocuments");
 
                     b.Navigation("PersonEdus");
 
                     b.Navigation("PersonFingers");
 
+                    b.Navigation("PersonLeaves");
+
                     b.Navigation("PersonSocials");
 
                     b.Navigation("PersonVisas");
 
-                    b.Navigation("SysUsers");
-                });
-
-            modelBuilder.Entity("EntityLayer.Concrete.Persons.PersonEduType", b =>
-                {
-                    b.Navigation("PersonEdus");
+                    b.Navigation("SysUser")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Persons.PersonType", b =>
                 {
                     b.Navigation("Persons");
-                });
-
-            modelBuilder.Entity("EntityLayer.Concrete.Persons.PersonVisaType", b =>
-                {
-                    b.Navigation("PersonVisas");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.System.SysCompany", b =>
@@ -1789,6 +1905,26 @@ namespace DataAccessLayer.Migrations
             modelBuilder.Entity("EntityLayer.Concrete.System.SysWorkTempItem", b =>
                 {
                     b.Navigation("SysFeedbacks");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.System.Types.SysDocumentType", b =>
+                {
+                    b.Navigation("PersonDocuments");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.System.Types.SysEduType", b =>
+                {
+                    b.Navigation("PersonEdus");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.System.Types.SysLeaveType", b =>
+                {
+                    b.Navigation("PersonLeaves");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.System.Types.SysVisaType", b =>
+                {
+                    b.Navigation("PersonVisas");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Work.WorkGroupRType", b =>

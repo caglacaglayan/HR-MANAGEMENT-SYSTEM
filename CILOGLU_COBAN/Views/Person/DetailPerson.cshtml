@@ -10,7 +10,7 @@
 <div class="wrapper">
     <div class="content-wrapper">
         <!-- Main content -->
-        @using (Html.BeginForm("UpdatePerson", "Person", FormMethod.Post))
+        @using (Html.BeginForm("DetailPerson", "Person", FormMethod.Post))
         {
             <section class="content">
                 <div class="row">
@@ -62,7 +62,7 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <button href="~/Person/Index" class="btn btn-outline-danger">Geri</button>
+                        <a href="~/Person/Index" class="btn btn-outline-danger">Geri</a>
                     </div>
                 </div>
             </section>
