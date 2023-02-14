@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EntityLayer.Concrete.Connection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,6 @@ namespace EntityLayer.Concrete.Inventories
         public string Title { get; set; }
         public string LangKey { get; set; }
         public int SyncID { get; set; }
-        public ICollection<Inventory> Inventories { get; set; }
+        public ICollection<InventoryConCategory> InventoryConCategories { get; set; }
     }
 }

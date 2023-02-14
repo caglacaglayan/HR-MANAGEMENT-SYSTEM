@@ -19,12 +19,12 @@ namespace BusinessLayer.Concrete
         IPersonModelDal _modelDal;
 
         public PersonModelManager(IPersonDal personDal, IPersonCardDal cardDal,
-            ISysUserDal userDal, IPersonModelDal modelDal)
+            ISysUserDal userDal)//, IPersonModelDal modelDal)
         {
             _personDal = personDal;
             _cardDal = cardDal;
             _userDal = userDal;
-            _modelDal = modelDal;
+            //_modelDal = modelDal;
         }
 
         public void AddModel(PersonModel model)
@@ -43,10 +43,10 @@ namespace BusinessLayer.Concrete
 
         public void UpdateModel(PersonModel model)
         {
-            //_personDal.Update(model.Person);
-            //_cardDal.Update(model.PersonCard);
-            //_userDal.Update(model.SysUser);
-            _modelDal.Update(model);
+            _personDal.Update(model.Person);
+            _cardDal.Update(model.PersonCard);
+            _userDal.Update(model.SysUser);
+            //_modelDal.Update(model);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using EntityLayer.Concrete.Persons;
+﻿using EntityLayer.Concrete.People;
 using EntityLayer.Concrete.Inventories;
 using System;
 using System.Collections.Generic;

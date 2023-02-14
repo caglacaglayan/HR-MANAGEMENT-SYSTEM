@@ -1,4 +1,5 @@
-﻿using EntityLayer.Concrete.Inventories;
+﻿using EntityLayer.Concrete.Connection;
+using EntityLayer.Concrete.Inventories;
 using EntityLayer.Concrete.System;
 using EntityLayer.Concrete.Types;
 using System;
@@ -8,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EntityLayer.Concrete.Persons
+namespace EntityLayer.Concrete.People
 {
     public class Person : BaseEntity
     {
@@ -30,7 +31,10 @@ namespace EntityLayer.Concrete.Persons
         public ICollection<PersonSocial> PersonSocials { get; set; }
         public ICollection<PersonDocument> PersonDocuments { get; set; }
         public ICollection<PersonLeave> PersonLeaves { get; set; }
+
         public ICollection<Inventory> Inventories { get; set; }
+        public ICollection<PersonConPosition> PersonConPositions { get; set; }
         public ICollection<SysPosition> SysPositions { get; set; }
+        public ICollection<PersonConDepartment> PersonConDepartments { get; set; }
     }
 }

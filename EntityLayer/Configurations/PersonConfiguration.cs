@@ -1,4 +1,4 @@
-﻿using EntityLayer.Concrete.Persons;
+﻿using EntityLayer.Concrete.People;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;

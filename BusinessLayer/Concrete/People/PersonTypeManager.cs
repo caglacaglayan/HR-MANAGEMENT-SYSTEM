@@ -1,4 +1,4 @@
-﻿using BusinessLayer.Abstract.Persons;
+﻿using BusinessLayer.Abstract.People;
 using DataAccessLayer.Abstract;
 using EntityLayer.Concrete.Types;
 using System;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLayer.Concrete.Persons
+namespace BusinessLayer.Concrete.People
 {
     public class PersonTypeManager : IPersonTypeService
     {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EntityLayer.Concrete.Connection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,5 +20,7 @@ namespace EntityLayer.Concrete.System
         public string LangKey { get; set; }
         public short Status { get; set; }
         public int SyncID { get; set; }
+
+        public ICollection<PersonConDepartment> personConDepartments { get; set; }
     }
 }

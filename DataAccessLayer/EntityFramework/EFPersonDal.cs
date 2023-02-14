@@ -1,7 +1,7 @@
 ﻿using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete.Repositories;
 using DataAccessLayer.Models;
-using EntityLayer.Concrete.Persons;
+using EntityLayer.Concrete.People;
 using System;
 using System.Collections.Generic;
 using System.Linq;

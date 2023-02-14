@@ -4,7 +4,6 @@ using EntityLayer.Concrete.System;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -37,7 +36,6 @@ namespace BusinessLayer.Concrete.System
         public List<SysCompany> GetList()
         {
             return _companyDal.List();
-
         }
 
         public void Update(SysCompany company)

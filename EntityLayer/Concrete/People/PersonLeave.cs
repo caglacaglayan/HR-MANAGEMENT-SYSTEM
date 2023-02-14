@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using EntityLayer.Concrete.Types;
 
-namespace EntityLayer.Concrete.Persons
+namespace EntityLayer.Concrete.People
 {
     public class PersonLeave : BaseEntity
     {

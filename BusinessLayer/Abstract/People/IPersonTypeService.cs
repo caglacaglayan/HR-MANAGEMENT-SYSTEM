@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLayer.Abstract.Persons
+namespace BusinessLayer.Abstract.People
 {
     public interface IPersonTypeService
     {

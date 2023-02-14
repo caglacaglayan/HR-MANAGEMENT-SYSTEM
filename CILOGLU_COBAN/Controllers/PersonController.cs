@@ -1,5 +1,5 @@
 ﻿using BusinessLayer.Concrete;
-using BusinessLayer.Concrete.Persons;
+using BusinessLayer.Concrete.People;
 using BusinessLayer.Concrete.System;
 using BusinessLayer.ValidationRules;
 using DataAccessLayer.EntityFramework;
@@ -43,7 +43,7 @@ namespace CILOGLU_COBAN.Controllers
             epd = new EFSysPositionDal(context);
             
             emd = new EFPersonModelDal(context);
-            mm = new PersonModelManager(efd, efc, esu, emd);
+            mm = new PersonModelManager(efd, efc, esu);//, emd);
 
             mg = new PersonManager(efd);
             pc = new PersonCardManager(efc);

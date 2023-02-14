@@ -1,6 +1,6 @@
 ﻿using DataAccessLayer.Abstract;
 using DataAccessLayer.Models;
-using EntityLayer.Concrete.Persons;
+using EntityLayer.Concrete.People;
 using EntityLayer.Concrete.System;
 using EntityLayer.Models;
 using Microsoft.EntityFrameworkCore;

@@ -1,13 +1,13 @@
-﻿using BusinessLayer.Abstract.Persons;
+﻿using BusinessLayer.Abstract.People;
 using DataAccessLayer.Abstract;
-using EntityLayer.Concrete.Persons;
+using EntityLayer.Concrete.People;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLayer.Concrete.Persons
+namespace BusinessLayer.Concrete.People
 {
     public class PersonManager : IPersonService
     {
