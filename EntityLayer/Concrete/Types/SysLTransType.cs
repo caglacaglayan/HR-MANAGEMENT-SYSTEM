@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EntityLayer.Concrete.Work
+namespace EntityLayer.Concrete.Types
 {
-    public class WorkGroupArea : BaseEntity
+    public class SysLTransType : BaseEntity
     {
-        public int ParentID { get; set; } // ??
         public string Title { get; set; }
     }
 }

@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EntityLayer.Concrete.Work
+namespace EntityLayer.Concrete.System
 {
-    public class WorkGroupArea : BaseEntity
+    public class SysRollcallStatus : BaseEntity
     {
-        public int ParentID { get; set; } // ??
         public string Title { get; set; }
+        public string LangKey { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EntityLayer.Concrete.Connection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,5 +21,7 @@ namespace EntityLayer.Concrete.System
         public string Url { get; set; }
         public string TestUrl { get; set; }
         public int SyncID { get; set; }
+        public ICollection<PersonConModuleMenu> PersonConModuleMenus { get; set; }
+        //public ICollection<SysMenuPer> SysMenuPers { get; set; }
     }
 }

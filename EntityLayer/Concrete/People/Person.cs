@@ -33,8 +33,21 @@ namespace EntityLayer.Concrete.People
         public ICollection<PersonLeave> PersonLeaves { get; set; }
 
         public ICollection<Inventory> Inventories { get; set; }
+        public ICollection<SysDemand> SysDemands { get; set; }
+        public ICollection<SysRollcall> SysRollcalls { get; set; }
+        public ICollection<PersonPepper> PersonPeppers { get; set; }
+
+        public ICollection<PersonConPerM> PersonConPerMs { get; set; }
+        public ICollection<PersonConModule> PersonConModules { get; set; }
+        public ICollection<PersonConModuleMenu> PersonConModuleMenus { get; set; }
+        public ICollection<PersonConShift> PersonConShifts { get; set; }
+        public ICollection<SysPersonConShift> SysPersonConShifts { get; set; }
+        public ICollection<PersonConWorkGroup> PersonConWorkGroups { get; set; }
+        public ICollection<PersonConWorkTemp> PersonConWorkTemps { get; set; }
+        public ICollection<PersonConDashboard>  PersonConDashboards { get; set; }
         public ICollection<PersonConPosition> PersonConPositions { get; set; }
-        public ICollection<SysPosition> SysPositions { get; set; }
+        public ICollection<PersonConRollcallDepartment> PersonConRollcallDepartments { get; set; }
         public ICollection<PersonConDepartment> PersonConDepartments { get; set; }
+        public ICollection<SysPosition> SysPositions { get; set; } // ????
     }
 }

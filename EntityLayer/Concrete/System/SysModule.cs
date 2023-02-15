@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EntityLayer.Concrete.Connection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace EntityLayer.Concrete.System
 {
     public class SysModule : BaseEntity
     {
-        public int ParentID { get; set; }
+        public int ParentID { get; set; } //??
         public short Status { get; set; }
         public short IsMain { get; set; }
         public string Title { get; set; }
@@ -19,5 +20,6 @@ namespace EntityLayer.Concrete.System
         public string Icon { get; set; }
         public string Url { get; set; }
         public ICollection<SysModuleMenu> SysModuleMenus { get; set; }
+        public ICollection<PersonConModule> PersonConModules { get; set; }
     }
 }

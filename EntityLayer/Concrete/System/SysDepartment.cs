@@ -21,6 +21,8 @@ namespace EntityLayer.Concrete.System
         public short Status { get; set; }
         public int SyncID { get; set; }
 
-        public ICollection<PersonConDepartment> personConDepartments { get; set; }
+        public ICollection<SysShift> SysShifts { get; set; }
+        public ICollection<PersonConDepartment> PersonConDepartments { get; set; }
+        public ICollection<PersonConRollcallDepartment> PersonConRollcallDepartments { get; set; }
     }
 }

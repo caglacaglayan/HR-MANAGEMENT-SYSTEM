@@ -1,18 +1,19 @@
-﻿using System;
+﻿using EntityLayer.Concrete.Types;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EntityLayer.Concrete.People
+namespace EntityLayer.Concrete.System
 {
-    public class PersonSocial : BaseEntity
+    public class SysSocial : BaseEntity
     {
-        public int PersonID { get; set; }
-        public Person Person { get; set; }
+        public int SysSocialTypeID { get; set; } // ???? RefID
+        public SysSocialType SysSocialType { get; set; }
         public int CTypeID { get; set; } //sor
         public int STypeID { get; set; } //sor
-        public short Status { get; set; }
+        public int Status { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
     }

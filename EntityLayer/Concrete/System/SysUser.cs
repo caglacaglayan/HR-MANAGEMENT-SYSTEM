@@ -18,5 +18,6 @@ namespace EntityLayer.Concrete.System
 		//public string PasswordSalt { get; set; }
 		//public string? PasswordHash { get; set; }
 		public string Note { get; set; }
+        public ICollection<SysUserToken> SysUserTokens { get; set; }
     }
 }

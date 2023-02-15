@@ -11,5 +11,6 @@ namespace EntityLayer.Concrete.System
         public string Title { get; set; }
         public string Code { get; set; }
         public short Status { get; set; }
+        public ICollection<SysTranslate> SysTranslates { get; set; }
     }
 }

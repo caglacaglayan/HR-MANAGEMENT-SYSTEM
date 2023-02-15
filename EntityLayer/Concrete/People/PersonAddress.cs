@@ -11,7 +11,7 @@ namespace EntityLayer.Concrete.People
         public int PersonID { get; set; }
         public Person Person { get; set; }
         public int CTypeID { get; set; }
-        public short Status { get; set; }
+        public int Status { get; set; }
         public string Title { get; set; }
         public int CountryID { get; set; }
         public string City { get; set; }
